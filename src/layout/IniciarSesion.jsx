@@ -1,9 +1,12 @@
-import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 const IniciarSesion = () => {
-  return (
-    <div>IniciarSesion</div>
-  )
+    return (
+        <div>
+            <p>IniciarSesion</p>
+            <Outlet />
+        </div>
+    )
 }
 
 export default IniciarSesion
