@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 const Layout = () => {
   return (
     <div className="md:flex md:min-h-screen">
@@ -7,18 +7,18 @@ const Layout = () => {
           CRM - Clientes
         </h2>
         <nav className="mt-10">
-          <a
-            href="/clientes"
+          <Link
+            to="/clientes"
             className="text-white text-2xl block mt-2 hover:text-blue-300"
           >
             Clientes
-          </a>
-          <a
-            href="/clientes/nuevo"
+          </Link>
+          <Link
+            to="/clientes/nuevo"
             className="text-white text-2xl block mt-2 hover:text-blue-300"
           >
             Nuevos Clientes
-          </a>
+          </Link>
         </nav>
       </div>
       <div className="md:w-3/4">
