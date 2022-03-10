@@ -1,12 +1,27 @@
-
+import { useEffect, useState } from "react";
 const Inicio = () => {
-    return (
-        <div>
-            <p>Inicio</p>
-            
+  const [clientes, setCliente] = useState([]);
+  useEffect(() => {
+    const obtenerClienteAPI = async () => {
+      try {
+        const url = "http://localhost:4000/clientes";
 
-        </div>
-    )
-}
+        const respuesta = await fetch(url);
+        const resultado = await respuesta.json();
+        setCliente(resultado);
+        console.log(resultado);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    obtenerClienteAPI();
+  }, []);
 
-export default Inicio
+  return (
+    <div>
+      <p>Inicio</p>
+    </div>
+  );
+};
+
+export default Inicio;
