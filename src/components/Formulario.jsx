@@ -10,18 +10,34 @@ const Formulario = () => {
       .max(20, "Nombre es muy largo")
       .required("Nombre del Cliente Requerido"),
     empresa: Yup.string().required("Nombre de la empresa Requerido"),
-    email: Yup.string().email('Email no es valido').required("Email es Requerido"),
+    email: Yup.string()
+      .email("Email no es valido")
+      .required("Email es Requerido"),
     telefono: Yup.number()
-      .integer('Numero debe ser entero')
-      .positive('Numero debe ser positivo')
-      .typeError('Numero no valido'),
+      .integer("Numero debe ser entero")
+      .positive("Numero debe ser positivo")
+      .typeError("Numero no valido"),
   });
 
-  const handleSubmit = (values) => {
-    console.log(values);
+  const handleSubmit = async (values) => {
+    try {
+      const url = "http://localhost:4000/clientes";
+      const respuesta = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(respuesta);
+      const resultado = await respuesta.json();
+      console.log(resultado);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  validationSchema = { nuevoClienteShema };
+  
 
   return (
     <div className="bg-white mt-10 px-5 py-5 rounded-md shadow-md md:w-3/4 mx-auto">
@@ -36,6 +52,7 @@ const Formulario = () => {
           telefono: "",
           notas: "",
         }}
+        validationSchema = { nuevoClienteShema }
         onSubmit={(values) => {
           handleSubmit(values);
         }}
@@ -99,7 +116,7 @@ const Formulario = () => {
                   placeholder="Telefono del Cliente"
                   name="telefono"
                 />
-                 {errors.telefono && touched.telefono ? (
+                {errors.telefono && touched.telefono ? (
                   <Alerta>{errors.telefono}</Alerta>
                 ) : null}
               </div>
