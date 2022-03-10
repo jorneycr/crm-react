@@ -15,6 +15,9 @@ const Formulario = () => {
           telefono: "",
           notas: "",
         }}
+        onSubmit={(values)=>{
+          console.log(values);
+        }}
       >
         {() => (
           <Form className="mt-10">
