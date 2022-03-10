@@ -1,4 +1,5 @@
 import React from "react";
+import { Formik, Form, Field } from "formik";
 
 const Formulario = () => {
   return (
@@ -6,6 +7,72 @@ const Formulario = () => {
       <h1 className="text-gray-600 font-bold text-xl uppercase  text-center">
         Agregar Cliente
       </h1>
+      <Formik>
+        <Form className="mt-10">
+          <div className="mb-4">
+            <label htmlFor="nombre" className="text-gray-800">
+              Nombre
+            </label>
+            <Field
+              type="text"
+              id="nombre"
+              className="mt-2 block w-full p-3 bg-gray-50"
+              placeholder="Nombre del Cliente"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="empresa" className="text-gray-800">
+              Empresa
+            </label>
+            <Field
+              type="text"
+              id="empresa"
+              className="mt-2 block w-full p-3 bg-gray-50"
+              placeholder="Empresa del Cliente"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="email" className="text-gray-800">
+              Email
+            </label>
+            <Field
+              type="email"
+              id="email"
+              className="mt-2 block w-full p-3 bg-gray-50"
+              placeholder="Email del Cliente"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="telefono" className="text-gray-800">
+              Telefono
+            </label>
+            <Field
+              type="tel"
+              id="telefono"
+              className="mt-2 block w-full p-3 bg-gray-50"
+              placeholder="Telefono del Cliente"
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="notas" className="text-gray-800">
+              Notas
+            </label>
+            <Field
+            as="textarea"
+              type="text"
+              id="notas"
+              className="mt-2 block w-full p-3 bg-gray-50 h-40"
+              placeholder="Notas del Cliente"
+            />
+          </div>
+          <input
+            type="submit"
+            value="Agregar Cliente"
+            className="mt-5 w-full bg-blue-800 text-white p-3 uppercase font-bold text-lg"
+          />
+          
+        </Form>
+      </Formik>
     </div>
   );
 };
