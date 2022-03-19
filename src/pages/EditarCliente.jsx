@@ -28,7 +28,7 @@ const EditarCliente = () => {
     <>
       <h1 className="font-black text-4xl text-blue-900">Editar Cliente</h1>
       <p className="mt-3">Editar datos de clientes</p>
-      <Formulario cliente={cliente} />
+      <Formulario cliente={cliente} cargando={cargando} />
     </>
   );
 };
