@@ -1,8 +1,12 @@
 {
   "clientes": [
     {
-      "id": 1,
-      "nombre": "Jorney"
+      "nombre": "Daniel",
+      "empresa": "Martinez",
+      "email": "JO@LIVE.COM",
+      "telefono": "4564454",
+      "notas": "S",
+      "id": 1
     },
     {
       "nombre": "JORNEY",
