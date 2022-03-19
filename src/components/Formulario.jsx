@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Alerta from "./Alerta";
 
-const Formulario = () => {
+const Formulario = ({ cliente }) => {
   const navigate = useNavigate();
 
   const nuevoClienteShema = Yup.object().shape({
@@ -35,7 +35,7 @@ const Formulario = () => {
       console.log(respuesta);
       const resultado = await respuesta.json();
       console.log(resultado);
-      navigate('/clientes')
+      navigate("/clientes");
     } catch (error) {
       console.log(error);
     }
