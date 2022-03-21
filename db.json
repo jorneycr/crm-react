@@ -1,20 +1,28 @@
 {
   "clientes": [
     {
-      "nombre": "Daniel",
+      "nombre": "Daniel aa",
       "empresa": "Martinez",
-      "email": "JO@LIVE.COM",
+      "email": "d@d.com",
       "telefono": "4564454",
       "notas": "S",
       "id": 1
     },
     {
       "nombre": "JORNEY",
-      "empresa": "LOPEZ",
-      "email": "JO@LIVE.COM",
+      "empresa": "l",
+      "email": "j@j.com",
       "telefono": "4564454",
       "notas": "S",
       "id": 2
+    },
+    {
+      "nombre": "Dyrlen",
+      "empresa": "asd",
+      "email": "a@a.a",
+      "telefono": "656555",
+      "notas": "",
+      "id": 3
     }
   ]
 }
