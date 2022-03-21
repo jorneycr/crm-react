@@ -2,21 +2,37 @@ import { useEffect, useState } from "react";
 import Cliente from "./Cliente";
 const Inicio = () => {
   const [clientes, setCliente] = useState([]);
-  useEffect(() => {
-    const obtenerClienteAPI = async () => {
-      try {
-        const url = "http://localhost:4000/clientes";
+  const obtenerClienteAPI = async () => {
+    try {
+      const url = "http://localhost:4000/clientes";
 
-        const respuesta = await fetch(url);
-        const resultado = await respuesta.json();
-        setCliente(resultado);
-        console.log(resultado);
+      const respuesta = await fetch(url);
+      const resultado = await respuesta.json();
+      setCliente(resultado);
+      console.log(resultado);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    obtenerClienteAPI();
+  }, []);
+
+  const handleEliminar = async (id) => {
+    const confirmar = confirm("Deseas Eliminar?");
+    if (confirmar) {
+      try {
+        const url = `http://localhost:4000/clientes/${id}`;
+        const respuesta = await fetch(url, {
+          method: "DELETE",
+        });
+        await respuesta.json();
+        obtenerClienteAPI();
       } catch (error) {
         console.log(error);
       }
-    };
-    obtenerClienteAPI();
-  }, []);
+    }
+  };
 
   return (
     <>
@@ -33,7 +49,11 @@ const Inicio = () => {
         </thead>
         <tbody>
           {clientes.map((cliente) => (
-            <Cliente key={cliente.id} cliente={cliente} />
+            <Cliente
+              key={cliente.id}
+              cliente={cliente}
+              handleEliminar={handleEliminar}
+            />
           ))}
         </tbody>
       </table>
